@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@main
-      - run: echo "::set-output actions/checkout@main
+      - run: echo "::set-output actions/checkout@main"

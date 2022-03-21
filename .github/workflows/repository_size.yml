@@ -6,3 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@main
       - run: echo "::set-output actions/checkout@main"
+      - run: du -skh --exclude=".git"

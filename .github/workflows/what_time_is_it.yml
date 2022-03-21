@@ -2,6 +2,6 @@ name: timer
 on: [push]
 jobs:
   display_date:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       - run: date

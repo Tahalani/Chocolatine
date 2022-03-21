@@ -1,6 +1,7 @@
-on:
-  push
-
+name: timer
+on: [push]
 jobs:
-  run-on:
-    - date
+  display_date:
+    run-on: ubuntu-latest
+    steps:
+      - run: date

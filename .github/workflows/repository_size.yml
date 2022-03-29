@@ -1,4 +1,4 @@
-name: 
+name: size
 on: [push]
 jobs:
   production-deploy:

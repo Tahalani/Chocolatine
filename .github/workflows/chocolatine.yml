@@ -57,6 +57,9 @@ jobs:
           if [[ -n "$FILE2" ]]; then
           echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
           fi
+  to_github:
+    runs-on: ubuntu-latest
+    steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0

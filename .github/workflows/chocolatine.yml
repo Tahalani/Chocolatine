@@ -58,8 +58,6 @@ jobs:
           echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
           fi
 
-name: Mirroring
-
 on: [push]
 
 jobs:

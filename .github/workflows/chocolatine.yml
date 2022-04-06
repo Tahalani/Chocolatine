@@ -9,7 +9,7 @@ on:
         -ga-ignore-*
 
 jobs:
-  "Unwanted file detected":
+  Unwanted_file_detected:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

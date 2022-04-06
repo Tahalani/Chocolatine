@@ -23,37 +23,37 @@ jobs:
       - run: find . -name *.gcov
       - name: .gcda
               run: |
-          FILE2=$(find . -name *.gcda)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
+                FILE2=$(find . -name *.gcda)
+                if [[ -n "$FILE2" ]]; then
+                echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+                fi
       - name: .o
               run: |
-          FILE2=$(find . -name *.o)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
+                FILE2=$(find . -name *.o)
+                if [[ -n "$FILE2" ]]; then
+                echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+                fi
       - name: .a
               run: |
-          FILE2=$(find . -name *.a)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
+                FILE2=$(find . -name *.a)
+                if [[ -n "$FILE2" ]]; then
+                echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+                fi
       - name: .gcno
               run: |
-          FILE2=$(find . -name *.gcno)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
+                FILE2=$(find . -name *.gcno)
+                if [[ -n "$FILE2" ]]; then
+                echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+                fi
       - name: .so
               run: |
-          FILE2=$(find . -name *.so)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
+                FILE2=$(find . -name *.so)
+                if [[ -n "$FILE2" ]]; then
+                echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+                fi
       - name: .gcov
               run: |
-          FILE2=$(find . -name *.gcov)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
+                FILE2=$(find . -name *.gcov)
+                if [[ -n "$FILE2" ]]; then
+                echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+                fi

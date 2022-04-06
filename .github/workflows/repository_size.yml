@@ -1,9 +1,0 @@
-name: 
-on: [push]
-jobs:
-  production-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@main
-      - run: echo "::set-output actions/checkout@main"
-      - run: du -skh --exclude=".git"

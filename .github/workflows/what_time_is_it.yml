@@ -1,7 +1,0 @@
-name: timer
-on: [push]
-jobs:
-  display_date:
-    runs-on: ubuntu-latest
-    steps:
-      - run: date

@@ -9,7 +9,7 @@ on:
         -ga-ignore-*
 
 jobs:
-  check_repository_cleanliness:
+  Unwanted_file_detected:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,57 +23,57 @@ jobs:
       - run: find . -name *.gcov
       - name: .gcda
         run: |
-          FILE_GCDA=$(find . -name *.gcda)
-          if [[ -n "$FILE_GCDA" ]]; then
-          echo "::error file=$FILE_GCDA,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *.gcda)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .o
         run: |
-          FILE_O=$(find . -name *.o)
-          if [[ -n "$FILE_O" ]]; then
-          echo "::error file=$FILE_O,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *.o)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .a
         run: |
-          FILE_A=$(find . -name *.a)
-          if [[ -n "$FILE_A" ]]; then
-          echo "::error file=$FILE_A,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *.a)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .gcno
         run: |
-          FILE_GCNO=$(find . -name *.gcno)
-          if [[ -n "$FILE_GCNO" ]]; then
-          echo "::error file=$FILE_GCNO,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *.gcno)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .so
         run: |
-          FILE_SO=$(find . -name *.so)
-          if [[ -n "$FILE_SO" ]]; then
-          echo "::error file=$FILE_SO,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *.so)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .gcov
         run: |
-          FILE_GCOV=$(find . -name *.gcov)
-          if [[ -n "$FILE_GCOV" ]]; then
-          echo "::error file=$FILE_GCOV,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *.gcov)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .-
         run: |
-          FILE_TIRET=$(find . -name *-)
-          if [[ -n "$FILE_TIRET" ]]; then
-          echo "::error file=$FILE_TIRET,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *-)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: .#
         run: |
-          FILE_HASHTAG=$(find . -name "\#*\#*)
-          if [[ -n "$FILE_HASHTAG" ]]; then
-          echo "::error file=$FILE_HASHTAG,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name "\#*\#*)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
       - name: pain_au_chocolat
         run: |
-          FILE_PAIN=$(find . -name *pain_au_chocolat)
-          if [[ -n "$FILE_PAIN" ]]; then
-          echo "::error file=$FILE_PAIN,line=1,col=5,endColumn=7, title="Unwanted file detected"
+          FILE2=$(find . -name *pain_au_chocolat)
+          if [[ -n "$FILE2" ]]; then
+          echo "::error file=$FILE2,line=1,col=5,endColumn=7, title="Unwanted file detected""
           fi
   check_program_compilation:
     runs-on: ubuntu-latest

@@ -36,7 +36,7 @@ jobs:
       - name: .tmp
         run: |
           FILE=$(find . -type d -name "tmp" *.tmp)
-          if [[ -n "$FILE" ]]; then
+          if [[ -d "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .a

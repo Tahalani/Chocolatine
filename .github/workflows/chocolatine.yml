@@ -57,7 +57,13 @@ jobs:
           if [[ -n "$FILE2" ]]; then
           echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
           fi
-  to_github:
+  check_program_compilation:
+    runs-on: ubuntu-latest
+    steps:
+      - run: make
+        queue:
+          timeoutInMinutes: 120
+  push_to_mirror:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -68,4 +74,4 @@ jobs:
           target_repo_url:
             git@github.com:EpitechPromo2026/B-DOP-200-PAR-2-1-chocolatine-taha.alani.git
           ssh_private_key:
-            ${{ secrets.taha_key_secret }}
+            ${{ secrets.GIT_SSH_PRIVATE_KEY }}

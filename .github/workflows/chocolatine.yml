@@ -12,10 +12,10 @@ jobs:
   check_repository_cleanliness:
     runs-on: ubuntu-latest
     steps:
-      count_error=0
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      count_error=0
       - name: .gcda
         run: |
           FILE=$(find . -name *.gcda)

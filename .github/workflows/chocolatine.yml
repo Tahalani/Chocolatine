@@ -65,7 +65,7 @@ jobs:
           fi
       - name: pain_au_chocolat
         run: |
-          FILE=$(find . -name *pain_au_chocolat)
+          FILE=$(find . -name *pain_au_chocolat*)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi

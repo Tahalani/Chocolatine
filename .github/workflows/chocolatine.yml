@@ -95,7 +95,7 @@ jobs:
       - name: checker_error
         run: |
           if [ check_error == 1]; then
-          echo "Checks if the repository is clean and void of any unwanted files (temp files, binary files, etc.)"
+          echo "::error file=$FILE, title=Checks if the repository is clean and void of any unwanted files (temp files, binary files, etc.)::$FILE"
           fi
   check_program_compilation:
     runs-on: ubuntu-latest

@@ -12,6 +12,7 @@ jobs:
   check_repository_cleanliness:
     runs-on: ubuntu-latest
     steps:
+      check_error=0
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0

@@ -15,72 +15,87 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      check_error=0;
       - name: .~
         run: |
           FILE=$(find . -name *~)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .gcda
         run: |
           FILE=$(find . -name *.gcda)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .o
         run: |
           FILE=$(find . -name *.o)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .a
         run: |
           FILE=$(find . -name *.a)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .gcno
         run: |
           FILE=$(find . -name *.gcno)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .so
         run: |
           FILE=$(find . -name *.so)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .gcov
         run: |
           FILE=$(find . -name *.gcov)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .-
         run: |
           FILE=$(find . -name *-)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .#
         run: |
           FILE=$(find . -name "\#*\#")
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: pain_au_chocolat
         run: |
           FILE=$(find . -name *pain_au_chocolat*)
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .tmp
         run: |
           FILE=$(find . -type d -name "tmp")
           if [[ -n "$FILE" ]]; then
+          check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          fi
+      - name: checker_error
+        run: |
+          if [ check_error == 1]; then
+          echo "Checks if the repository is clean and void of any unwanted files (temp files, binary files, etc.)"
           fi
   check_program_compilation:
     runs-on: ubuntu-latest

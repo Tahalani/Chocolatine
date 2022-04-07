@@ -12,6 +12,7 @@ jobs:
   check_repository_cleanliness:
     runs-on: ubuntu-latest
     steps:
+      count_error=0
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
@@ -20,54 +21,69 @@ jobs:
           FILE=$(find . -name *.gcda)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .o
         run: |
           FILE=$(find . -name *.o)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .a
         run: |
           FILE=$(find . -name *.a)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .gcno
         run: |
           FILE=$(find . -name *.gcno)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .so
         run: |
           FILE=$(find . -name *.so)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .gcov
         run: |
           FILE=$(find . -name *.gcov)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .-
         run: |
           FILE=$(find . -name *-)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: .#
         run: |
           FILE=$(find . -name "\#*\#")
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
           fi
       - name: pain_au_chocolat
         run: |
           FILE=$(find . -name *pain_au_chocolat*)
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          count_error = 1
+          fi
+      - name: count
+        run: |
+          if [ count == 1]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7,title=checks if the repository is clean and void of any unwanted files (temp files, binary files, etc.)::$FILE"
+          count_error = 1
           fi
   check_program_compilation:
     runs-on: ubuntu-latest

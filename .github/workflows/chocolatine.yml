@@ -57,12 +57,6 @@ jobs:
           if [[ -n "$FILE2" ]]; then
           echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
           fi
-      - name: .#
-        run: |
-          FILE2=$(find . -#name *#)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
-          fi
       - name: .-
         run: |
           FILE2=$(find . -name *-)

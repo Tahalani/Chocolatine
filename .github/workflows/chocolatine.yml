@@ -86,7 +86,8 @@ jobs:
           exit $exit_status
   run_tests:
     timeout-minutes: 2
-    run: make test_tun
+    steps:
+      run: make test_tun
   push_to_mirror:
     runs-on: ubuntu-latest
     steps:

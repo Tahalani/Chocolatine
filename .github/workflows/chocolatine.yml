@@ -81,7 +81,7 @@ jobs:
               else
                   echo "File '$file' is not executable"
                   exit_status=84 
-              fi
+              fin
           done
           exit $exit_status
   push_to_mirror:

@@ -33,12 +33,6 @@ jobs:
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
-      - name: .tmp
-        run: |
-          FILE=$(find . -type d -name "tmp" *.tmp)
-          if [[ -d "$FILE" ]]; then
-          echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
-          fi
       - name: .a
         run: |
           FILE=$(find . -name *.a)
@@ -78,6 +72,12 @@ jobs:
       - name: pain_au_chocolat
         run: |
           FILE=$(find . -name *pain_au_chocolat*)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          fi
+      - name: .tmp
+        run: |
+          FILE=$(find . -type d -name "tmp")
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi

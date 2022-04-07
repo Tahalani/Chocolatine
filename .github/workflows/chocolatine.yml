@@ -9,18 +9,12 @@ on:
         -ga-ignore-*
 
 jobs:
-  Unwanted_file_detected:
+  check_repository_cleanliness:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - run: find . -name *.o
-      - run: find . -name *.a
-      - run: find . -name *.so
-      - run: find . -name *.gcno
-      - run: find . -name *.gcda
-      - run: find . -name *.gcov
       - name: .gcda
         run: |
           FILE=$(find . -name *.gcda)

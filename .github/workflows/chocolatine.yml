@@ -81,7 +81,6 @@ jobs:
               fi
           done
           exit $exit_status
-          
   push_to_mirror:
     runs-on: ubuntu-latest
     steps:

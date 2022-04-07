@@ -88,6 +88,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - run: make tests_run
   push_to_mirror:
     runs-on: ubuntu-latest

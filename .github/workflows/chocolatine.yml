@@ -61,8 +61,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
-      - run: make
-      - run: make fclean
+      - run: cd ../.. | make
+      - run: cd ../.. | make fclean
       - run: |
           IFS=','
           exit_status=0

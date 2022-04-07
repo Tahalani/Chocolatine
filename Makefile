@@ -9,8 +9,6 @@ OBJ			=		$(SRC:.c=.o)
 
 OBJT		=		$(SRCT:.c=.o)
 
-TEST_FLAG	=		-lcriterion --coverage
-
 NAME		=		chocolatine
 
 NAME_CRI	=		units_tests
@@ -32,7 +30,7 @@ fclean: clean
 re:		fclean all
 
 units_tests:	fclean $(OBJT)
-	gcc -o $(NAME_CRI) $(SRCT) $(TEST_FLAG)
+	gcc -o $(NAME_CRI) $(SRCT) -lcriterion --coverage
 
 tests_run:		units_tests
 	./$(NAME_CRI)

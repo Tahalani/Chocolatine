@@ -21,12 +21,6 @@ jobs:
           if [[ -n "$FILE" ]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
-      - name: .tmp
-        run: |
-          FILE=$(find . -type d -name "tmp" \)
-          if [[ -n "$FILE" ]]; then
-          echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
-          fi
       - name: .gcda
         run: |
           FILE=$(find . -name *.gcda)
@@ -49,6 +43,11 @@ jobs:
         run: |
           FILE=$(find . -name *.gcno)
           if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
+          fi
+      - name: .tmp
+        run: |
+          if [[ "$FILE" == "tmp/"*]]; then
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
       - name: .so

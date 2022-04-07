@@ -63,6 +63,26 @@ jobs:
       - run: make
         queue:
           timeoutInMinutes: 120
+      - run: make fclean
+      - run: |
+          IFS=','
+          exit_status=0
+          for file in ${EXECUTABLES}
+          do
+              if [ -x "$file" ]; then
+                  if [ ! -d "$file" ]; then
+                      echo "File '$file' is executable"
+                  else
+                      echo "File '$file' is directory"
+                      exit_status=84
+                  fi
+              else
+                  echo "File '$file' is not executable"
+                  exit_status=84 
+              fi
+          done
+          exit $exit_status
+          
   push_to_mirror:
     runs-on: ubuntu-latest
     steps:

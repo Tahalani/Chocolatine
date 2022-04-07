@@ -23,57 +23,57 @@ jobs:
       - run: find . -name *.gcov
       - name: .gcda
         run: |
-          FILE2=$(find . -name *.gcda)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *.gcda)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .o
         run: |
-          FILE2=$(find . -name *.o)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *.o)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .a
         run: |
-          FILE2=$(find . -name *.a)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *.a)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .gcno
         run: |
-          FILE2=$(find . -name *.gcno)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *.gcno)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .so
         run: |
-          FILE2=$(find . -name *.so)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *.so)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .gcov
         run: |
-          FILE2=$(find . -name *.gcov)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *.gcov)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .-
         run: |
-          FILE2=$(find . -name *-)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *-)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: .#
         run: |
-          FILE2=$(find . -name "\#*\#")
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name "\#*\#")
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
       - name: pain_au_chocolat
         run: |
-          FILE2=$(find . -name *pain_au_chocolat)
-          if [[ -n "$FILE2" ]]; then
-          echo "::error file=$FILE2,line=1,col=5,endColumn=7::$FILE2"
+          FILE=$(find . -name *pain_au_chocolat)
+          if [[ -n "$FILE" ]]; then
+          echo "::error file=$FILE,line=1,col=5,endColumn=7::$FILE"
           fi
   check_program_compilation:
     runs-on: ubuntu-latest

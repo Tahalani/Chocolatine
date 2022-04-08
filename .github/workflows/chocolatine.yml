@@ -8,7 +8,8 @@ on:
       branches-ignore:
         -ga-ignore-*
 
-ENV check_error=0
+ENV:
+  check_error: 0
 
 jobs:
   check_repository_cleanliness:

@@ -32,7 +32,7 @@ jobs:
       - name: .o
         run: |
           FILE=$(find . -name *.o)
-          if [[ -n "$FILE" ]]; then
+          if [[ -d "$FILE" ]]; then
           check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi
@@ -88,7 +88,7 @@ jobs:
       - name: .tmp
         run: |
           FILE=$(find . -type d -name "tmp")
-          if [[ -d "$FILE" ]]; then
+          if [[ -n "$FILE" ]]; then
           check_error=1
           echo "::error file=$FILE,line=1,col=5,endColumn=7,title=Unwanted file detected::$FILE"
           fi

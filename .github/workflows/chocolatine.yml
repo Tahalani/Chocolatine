@@ -125,7 +125,7 @@ jobs:
           done
           exit $exit_status
   run_tests:
-    runs-on: ubuntu-latest
+    runs-on: epitechcontent/epitest-docker:latest
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v2

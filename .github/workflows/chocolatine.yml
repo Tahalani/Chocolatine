@@ -8,7 +8,7 @@ on:
       branches-ignore:
         -ga-ignore-*
 
-ENV:
+env:
   check_error: 0
 
 jobs:

@@ -87,6 +87,7 @@ jobs:
           echo "::error file=$FILE, title=Checks if the repository is clean and void of any unwanted files (temp files, binary files, etc.)::$FILE"
           fi
   check_program_compilation:
+    needs: check_repository_cleanliness
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
@@ -114,6 +115,7 @@ jobs:
           done
           exit $exit_status
   run_tests:
+  needs: check_program_compilation
     runs-on: ubuntu-latest
     container:
       image: epitechcontent/epitest-docker:latest 
@@ -124,6 +126,7 @@ jobs:
           fetch-depth: 0
       - run: make tests_run
   push_to_mirror:
+  needs: run_tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

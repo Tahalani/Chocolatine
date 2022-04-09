@@ -115,7 +115,7 @@ jobs:
           done
           exit $exit_status
   run_tests:
-  needs: check_program_compilation
+    needs: check_program_compilation
     runs-on: ubuntu-latest
     container:
       image: epitechcontent/epitest-docker:latest 
@@ -126,7 +126,7 @@ jobs:
           fetch-depth: 0
       - run: make tests_run
   push_to_mirror:
-  needs: run_tests
+    needs: run_tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

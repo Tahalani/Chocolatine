@@ -89,13 +89,15 @@ jobs:
   check_program_compilation:
     needs: check_repository_cleanliness
     runs-on: ubuntu-latest
+    container:
+      image: epitechcontent/epitest-docker:latest 
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - run: make
-      - run: make fclean
+      - run: make clean
       - run: |
           IFS=','
           exit_status=0
